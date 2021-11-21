@@ -1,0 +1,21 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron"> 
+   
+
+    <h2>Bulletin Board (Notices)</h2> <a class="btn btn-default" href="/createnotice/">(+)</a>
+
+    {% if noticedata %}
+    <ul>
+        {% for notice in noticedata %}
+        <li>{{ notice.heading }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No notices are available.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
