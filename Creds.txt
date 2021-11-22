@@ -1,0 +1,124 @@
+Super User Django
+bkrishnan
+bkris005@fiu.edu
+django
+
+admin
+Neighborhoodadmin
+
+AppUser1
+neighborhood1
+
+
+-------
+C:\Users\bkrishnan\source\repos\DjangoWebProject1
+python manage.py migrate
+
+>python manage.py makemigrations app
+----
+C:\Users\bkrishnan\source\repos\DjangoWebProject1
+db.sqlite3
+
+https://sqliteonline.com/
+
+File -> Open DB
+
+-
+
+python manage.py shell
+
+C:\Users\bkrishnan\source\repos\DjangoWebProject1>python manage.py shell
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from app.models import Notice
+>>> n = Notice(heading="Weather Update 11142021 911PM", content="raincoming")
+>>> n.save()
+>>> Notice.objects.all()
+<QuerySet [<Notice: Notice object (0)>]>
+
+-------------------
+videos:
+best - https://www.youtube.com/watch?v=IMG4r03G6g8
+https://www.youtube.com/watch?v=OTmQOjsl0eg
+https://www.youtube.com/watch?v=vM9mcWr1RMg
+
+
+CRUD best --https://www.youtube.com/watch?v=EX6Tt-ZW0so
+
+
+-----------
+
+  <a href="/" class="navbar-brand">
+            {% load static %}
+            <img src={% static "images/earth.jpg" %}  alt="R" > 
+        </a>
+
+
+
+
+
+
+
+{% if user.is_authenticated %}
+<form id="logoutForm" action="/logout/" method="post" class="navbar-right">
+    {% csrf_token %}
+    <ul class="nav navbar-nav navbar-right">
+        <li> <a href="/admin/" enabled={{user.Is_staff}}>Hello {{ user.username }}!</a>
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+</form>
+
+{% else %}
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'login' %}">Log in</a></li>
+</ul>
+
+{% endif %}
+
+
+nhenv
+
+
+-----------------------
+<div id='frame'>
+    <a class="note sticky1">
+        <div class='pin'></div>
+        <div class='text'>Sed ut perspiciatis unde omnis iste natus error sit.</div>
+    </a>
+    <a class="note sticky2">
+        <div class='pin'></div>
+        <div class='text'>Ut labore et dolo</div>
+    </a>
+    <a class="note sticky1">
+        <div class='pin'></div>
+        <div class='text'>At vero eos et accusamus et iusto odio dignissimo</div>
+    </a>
+    <a class="note sticky3">
+        <div class='pin'></div>
+        <div class='text'>Blanditiis praesentium voluptatum deleniti atque</div>
+    </a>
+    <a class="note sticky4">
+        <div class='pin'></div>
+        <div class='text'>Nam libero tempore, cum soluta nobis est !<br> x x</div>
+    </a>
+    <a class="note sticky3">
+        <div class='pin'></div>
+        <div class='text'>Temporibus autem</div>
+    </a>
+    <a class="note sticky1">
+        <div class='pin'></div>
+        <div class='text'>Itaque earum rerum hic tenetur a sapiente </div>
+    </a>
+    <a class="note sticky3">
+        <div class='pin'></div>
+        <div class='text'>Soluptatibus maiores.</div>
+    </a>
+    <a class="note sticky0">
+        <div class='pin'></div>
+        <div class='text'>Perferendis doloribus asperiores repella.</div>
+    </a>
+</div>
+----------------------

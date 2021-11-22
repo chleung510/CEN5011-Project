@@ -1,0 +1,22 @@
+{% if user.is_authenticated %}
+<form id="logoutForm" action="/logout/" method="post" class="navbar-right">
+    {% csrf_token %}
+    <ul class="nav navbar-nav navbar-right">
+        <li> <a href="/admin/" enabled={{user.Is_staff}}>Hello <span style="font-family: verdana; color: #77ba40">{{ user.username }}</span>!</a>
+        </li>
+        
+        <a href="/" class="navbar-brand">
+            {% load static %}
+            <img src={% static "images/earth.jpg" %}  alt="R" data-toggle="tooltip" title="set radius"> 
+        </a>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+</form>
+
+{% else %}
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'login' %}">Log in</a></li>
+</ul>
+
+{% endif %}

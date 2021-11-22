@@ -1,0 +1,81 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+
+
+    <form action="{% url 'home' %}" method="get">
+        <input name="q" type="text" placeholder="Search Neighborhood...">
+        <button class="glyphicon glyphicon-search" type="submit"></button>
+    </form>
+    
+    <br/>
+    
+    
+    <div class="container" style="height: 300px; background-color: #bee792">
+        <!-- Content here -->
+        <table style="border: 1px solid lightgreen">
+            <h2>Recent Posts</h2>
+    
+            {% if noticedata %}
+            <div id='frame'>
+                {% for notice in noticedata|slice:"0:4" %}
+                <a class="note sticky{{forloop.counter}}">
+                    <div class='pin'></div>
+                    <div class='text' data-toggle="tooltip" title={{ notice.heading }}>{{ notice.heading|slice:"0:25" }}</div>
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No notices are available.</p>
+            {% endif %}
+        </table>
+    </div>
+    
+    <br/>
+    
+    <div class="container" style="background-color: #E5FCDC" >
+        <h2>Bulletin Board (Notices)</h2> <a class="btn btn-sm btn-info" href="/createnotice/" data-toggle="tooltip" title="post notice">(+)</a>
+
+        {% if noticedata %}
+        <ul>
+            {% for notice in noticedata %}
+            <div>
+                <td>{{ notice.heading }}</td>
+                        <td><br/></td>
+                        <td style="width: 500px">.........{{ notice.content }}</td>
+                        <td><a class="glyphicon glyphicon-pencil" href="{% url 'updatenotice' notice.noticeID  %}"></a></td>
+                        <td><a class="glyphicon glyphicon-trash" href="{% url 'deletenotice' notice.noticeID  %}"></a></td>
+                <br/>
+            </div>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No notices are available.</p>
+        {% endif %}
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Neighborhood gives you powerful tools to create and share notices and events related to your neighborhood that
+            enables users to receive information in a quick and easy fashion. Create your first notice now
+        </p>
+        <p><a class="btn btn-default" href="/createnotice/">Try Now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Subscribe to Events</h2>
+        <p>Neighborhood allows you to join an event group based on your interests</p>
+        <p><a class="btn btn-default" href="/createnotice/">Join Group &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Host events</h2>
+        <p>You can easily create an event group using Neighborhood. Find out how you can host an event group below.</p>
+        <p><a class="btn btn-default" href="/createnotice/">Explore Events &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}
